@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunucmá University Scholarship Program 2024</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .org-info h1 {
+            font-size: 1.8rem;
+            color: #1e3a8a;
+            margin-bottom: 0.2rem;
+        }
+
+        .org-info .subtitle {
+            font-size: 0.85rem;
+            color: #1e3a8a;
+            font-weight: 600;
+            margin-bottom: 0.1rem;
+        }
+
+        .org-info p {
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #3b82f6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(59, 130, 246, 0.8)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23667eea;stop-opacity:1" /><stop offset="100%" style="stop-color:%23764ba2;stop-opacity:1" /></linearGradient></defs><rect width="1000" height="500" fill="url(%23grad)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+            color: white;
+            box-shadow: 0 4px 15px rgba(238, 90, 111, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(238, 90, 111, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #1e3a8a;
+        }
+
+        /* Info Cards */
+        .info-section {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 3rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 24px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+
+        /* Requirements Section */
+        .requirements {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 6rem 0;
+        }
+
+        .requirements-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .requirements-list {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .requirements-list h3 {
+            color: #1e3a8a;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .requirements-list ul {
+            list-style: none;
+        }
+
+        .requirements-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .requirements-list li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+
+        .timeline {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline h3 {
+            color: #1e3a8a;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-item {
+            padding: 1rem 0;
+            border-left: 3px solid #667eea;
+            padding-left: 1.5rem;
+            margin-left: 10px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            position: absolute;
+            left: -7.5px;
+            top: 1.5rem;
+        }
+
+        .timeline-item h4 {
+            color: #1e3a8a;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Application Form */
+        .application-form {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            padding: 6rem 0;
+            color: white;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .file-upload {
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #60a5fa;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .requirements-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Login Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 12px;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <img src="./images/logo-hunucma.png" alt="Escudo Hunucmá">
+                    </div>
+                    <div class="org-info">
+                        <div class="subtitle">H. Ayuntamiento de Hunucmá</div>
+                        <h1>Municipality of Hunucmá</h1>
+                        <p>Youth Development Department</p>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#requirements">Requirements</a></li>
+                        <li><a href="#apply">Apply</a></li>
+                        <li><a href="#" onclick="openLoginModal()">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="fade-in-up">
+                <h2>University Scholarship Program 2025</h2>
+                <p>Empowering the youth of Hunucmá and its communities through educational support. Apply now for financial assistance to pursue your higher education dreams.</p>
+                <div class="cta-buttons">
+                    <a href="#apply" class="btn btn-primary">Apply for Scholarship</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section id="about" class="info-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our Program?</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🎓</div>
+                    <h3>Educational Excellence</h3>
+                    <p>Support for students in both public and private universities, helping you achieve academic success without financial burden.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💰</div>
+                    <h3>Financial Support</h3>
+                    <p>Direct economic assistance to help cover tuition fees, books, and other educational expenses for university students.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🌟</div>
+                    <h3>Local Community Focus</h3>
+                    <p>Exclusively for young people from Hunucmá and its communities, ensuring local talent development and growth.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📋</div>
+                    <h3>Digital Application</h3>
+                    <p>Easy online application process with secure document upload and status tracking throughout the evaluation.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <h3>Ongoing Support</h3>
+                    <p>Continuous guidance and support from the Youth Development Department throughout your academic journey.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⏱️</div>
+                    <h3>Quick Processing</h3>
+                    <p>Streamlined evaluation process with regular updates on your application status and quick decision timeline.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section id="requirements" class="requirements">
+        <div class="container">
+            <h2 class="section-title">Application Requirements & Timeline</h2>
+            <div class="requirements-content">
+                <div class="requirements-list">
+                    <h3>Required Documents</h3>
+                    <ul>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Academic transcript (1 copy)
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Federal Taxpayer Registry (INE) (1 copy)
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Unique Population Registry Code (CURP) (1 copy)
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Birth certificate (1 copy)
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Proof of residence (1 copy)
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            3 passport-size photographs
+                        </li>
+                    </ul>
+                </div>
+                <div class="timeline">
+                    <h3>Application Timeline</h3>
+                    <div class="timeline-item">
+                        <h4>Application Period</h4>
+                        <p>August 4-15, 2025</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Document Review</h4>
+                        <p> August 20 - August 28, 2025</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Evaluation Process</h4>
+                        <p>September 1-10, 2025</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Results Announcement</h4>
+                        <p>September 15, 2025</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Scholarship Distribution</h4>
+                        <p>September 18, 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section id="apply" class="application-form">
+        <div class="container">
+            <h2 class="section-title">Apply for Scholarship</h2>
+            <div class="form-container">
+                <form id="scholarshipForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+52 999 123 4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="birthDate">Date of Birth</label>
+                            <input type="date" id="birthDate" name="birthDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="university">University</label>
+                            <input type="text" id="university" name="university" required placeholder="Universidad Autónoma de Yucatán">
+                        </div>
+                        <div class="form-group">
+                            <label for="program">Program of Study</label>
+                            <input type="text" id="program" name="program" required placeholder="Engineering, Medicine, etc.">
+                        </div>
+                        <div class="form-group">
+                            <label for="semester">Current Semester</label>
+                            <select id="semester" name="semester" required>
+                                <option value="">Select semester</option>
+                                <option value="1">1st Semester</option>
+                                <option value="2">2nd Semester</option>
+                                <option value="3">3rd Semester</option>
+                                <option value="4">4th Semester</option>
+                                <option value="5">5th Semester</option>
+                                <option value="6">6th Semester</option>
+                                <option value="7">7th Semester</option>
+                                <option value="8">8th Semester</option>
+                                <option value="9">9th Semester</option>
+                                <option value="10">10th Semester</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="gpa">Current GPA</label>
+                            <input type="number" id="gpa" name="gpa" min="0" max="10" step="0.1" placeholder="8.5">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="motivation">Why should you receive this scholarship? (Personal Statement)</label>
+                        <textarea id="motivation" name="motivation" rows="6" required placeholder="Tell us about your academic goals, financial need, and how this scholarship will help you succeed..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Document Upload</label>
+                        <div class="file-upload" onclick="document.getElementById('documents').click()">
+                            <p>📁 Click to upload your documents</p>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Supported formats: PDF, JPG, PNG (Max 10MB each)</p>
+                            <input type="file" id="documents" name="documents" multiple accept=".pdf,.jpg,.jpeg,.png" style="display: none;">
+                        </div>
+                        <div id="fileList" style="margin-top: 1rem;"></div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p>Youth Development Department</p>
+                    <p>Casa de la Cultura</p>
+                    <p>Hunucmá, Yucatán, México</p>
+                    <p>Phone: +52 (999) 123-4567</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Office Hours</h3>
+                    <p>Monday to Friday</p>
+                    <p>8:00 AM - 1:00 PM</p>
+                    <p>5:00 PM - 8:00 PM</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#home" style="color: #60a5fa;">Home</a></p>
+                    <p><a href="#about" style="color: #60a5fa;">About Program</a></p>
+                    <p><a href="#requirements" style="color: #60a5fa;">Requirements</a></p>
+                    <p><a href="#apply" style="color: #60a5fa;">Apply Now</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 H. Ayuntamiento de Hunucmá. "Nuestro compromiso es contigo" - Our commitment is with you.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h3 style="margin-bottom: 1rem; color: #1e3a8a;">Student Login</h3>
+            <form class="login-form">
+                <input type="email" placeholder="Email address" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Login</button>
+                <p style="text-align: center; margin-top: 1rem; color: #666;">
+                    Don't have an account? <a href="#apply" style="color: #1e3a8a;" onclick="closeLoginModal()">Apply first</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('scholarshipForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Store in memory (in a real application, this would be sent to a server)
+            const applications = JSON.parse(sessionStorage.getItem('applications') || '[]');
+            data.id = Date.now();
+            data.status = 'pending';
+            data.submissionDate = new Date().toLocaleDateString();
+            applications.push(data);
+            sessionStorage.setItem('applications', JSON.stringify(applications));
+            
+            alert('Application submitted successfully! You will receive a confirmation email shortly. Please save your application ID: ' + data.id);
+            this.reset();
+            document.getElementById('fileList').innerHTML = '';
+        });
+
+        // File upload handling
+        document.getElementById('documents').addEventListener('change', function(e) {
+            const fileList = document.getElementById('fileList');
+            fileList.innerHTML = '';
+            
+            if (e.target.files.length > 0) {
+                fileList.innerHTML = '<h4 style="margin-bottom: 0.5rem;">Selected Files:</h4>';
+                for (let file of e.target.files) {
+                    const fileItem = document.createElement('div');
+                    fileItem.style.padding = '0.5rem';
+                    fileItem.style.background = 'rgba(255,255,255,0.1)';
+                    fileItem.style.borderRadius = '5px';
+                    fileItem.style.marginBottom = '0.5rem';
+                    fileItem.innerHTML = `📄 ${file.name} (${(file.size/1024/1024).toFixed(2)} MB)`;
+                    fileList.appendChild(fileItem);
+                }
+            }
+        });
+
+        // Modal functions
+        function openLoginModal() {
+            document.getElementById('loginModal').style.display = 'block';
+        }
+
+        function closeLoginModal() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('loginModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Add animation classes on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe cards for animation
+        document.querySelectorAll('.card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
